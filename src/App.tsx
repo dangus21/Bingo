@@ -5,10 +5,14 @@ import { BingoTemplate, BingoCardEditOptions } from "declarations/BingoCard";
 
 import BingoCard from "Components/BingoCard";
 import BingoWrapper from "Components/BingoWrapper";
-import { Button, Container, CssBaseline } from '@material-ui/core';
+import Notification from "Components/Notification";
+
+import { Button, Container } from "semantic-ui-react";
 
 const App = () => {
     const [counter, setCounter] = useState<number>(0)
+    const [isNotificationOpen, setIsNotificationOpen] = useState<boolean>(false)
+    const [notificationText, setNotificationText] = useState<string>('')
 
     const bingoPreset: BingoTemplate = {
         text: '',
@@ -18,16 +22,9 @@ const App = () => {
         uuid: uuidv4(),
     }
 
-    const [bingos, setBingos] = useState<BingoTemplate[]>([
-        bingoPreset,
-        bingoPreset,
-        bingoPreset,
-        bingoPreset,
-        bingoPreset,
-        bingoPreset,
-        bingoPreset,
-        bingoPreset,
-    ])
+    const debugBingos = Array(8).fill({}).map((b, i) => ({ ...bingoPreset, ...b, id: i, uuid: uuidv4() }))
+
+    const [bingos, setBingos] = useState<BingoTemplate[]>(debugBingos)
 
 
     const addAndIncrement = (): void => {
@@ -72,15 +69,20 @@ const App = () => {
     }
 
     return (
-        <Container component="section">
-            <CssBaseline />
-            <Button variant="contained" color="primary" onClick={addAndIncrement}>Add Bingo Card</Button>
+        <Container>
+            <Notification
+                text={notificationText}
+                isOpen={isNotificationOpen}
+                setOpenNotification={setIsNotificationOpen} />
+            <Button onClick={addAndIncrement}>Add Bingo Card</Button>
             <BingoWrapper>
                 {bingos.map(bingo =>
                     <BingoCard
                         key={bingo.id.toString()}
                         setEdit={setEdit}
                         setText={setText}
+                        setOpenNotification={setIsNotificationOpen}
+                        setNotificationText={setNotificationText}
                         {...bingo} />
                 )}
             </BingoWrapper>

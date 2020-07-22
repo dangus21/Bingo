@@ -1,39 +1,52 @@
 import React from 'react';
-import styles from './styles.module.scss';
-import c from 'classnames';
-
 import { BingoTemplate, BingoCardEditOptions } from 'declarations/BingoCard';
-import Grid from '@material-ui/core/Grid';
+import copy from 'copy-to-clipboard';
+
+import { Card, Input } from 'semantic-ui-react'
 
 interface Props extends BingoTemplate {
     setEdit(options: BingoCardEditOptions): void,
     setText(id: string, value: string): void
+    setOpenNotification(open: boolean): void
+    setNotificationText(open: string): void
 }
 
-export const BingoCard = ({ text, placeholder, id, setEdit, setText, isEditing, uuid }: Props) => {
-    // document.addEventListener('click', (event) => {
-    //     event.preventDefault();
-    //     event.stopImmediatePropagation();
-
-    //     (event.srcElement as HTMLElement)?.id !== `bingoCard-${uuid}` && setEdit({closeAll: true})
-    // })
+export const BingoCard = ({
+    text,
+    placeholder,
+    id,
+    isEditing,
+    uuid,
+    setEdit,
+    setText,
+    setOpenNotification,
+    setNotificationText
+}: Props) => {
+    const copyUuidOpenNotification = () => {
+        copy(uuid);
+        setNotificationText('Bingo card ID copied to clipboard');
+        setOpenNotification(true);
+    }
     return (
-        <Grid
-            item
-            xs={12}
-            md={2}
-            id={`bingoCard-${uuid}`}
-            className={c(styles.wrapper, { [styles.editing]: isEditing })}
+        <Card
             onClick={() => !isEditing && setEdit({ id })}>
-            {isEditing ?
-                <input
-                    placeholder={placeholder}
-                    value={text}
-                    onChange={(e) => setText(id, e.target.value)}
-                    onKeyDown={(e) => e.keyCode === 13 && setEdit({ id })} /> :
-                <span style={{ pointerEvents: 'none' }}>
-                    {text || placeholder}
-                </span>}
-        </Grid>
+            <Card.Content>
+                <Card.Meta>
+                    <small onClick={copyUuidOpenNotification}><span>{uuid}</span></small>
+                </Card.Meta>
+            </Card.Content>
+            <Card.Content>
+                {isEditing ?
+                    <Input
+                        placeholder={placeholder}
+                        value={text}
+                        onChange={(e: any) => setText(id, e.target.value)}
+                        onKeyDown={(e: any) => e.keyCode === 13 && setEdit({ id })} />
+                    :
+                    <span>{text || placeholder}</span>
+                }
+            </Card.Content>
+        </Card >
+
     )
-};
+}
