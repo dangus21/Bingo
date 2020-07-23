@@ -28,9 +28,9 @@ export const BingoCard = ({
     }
     return (
         <Card>
-            <Card.Content>
+            <Card.Content onClick={copyUuidOpenNotification} className={styles.cursorCopy}>
                 <Card.Meta>
-                    <small onClick={copyUuidOpenNotification}><span>{uuid}</span></small>
+                    <small><span>{uuid}</span></small>
                 </Card.Meta>
             </Card.Content>
             <Card.Content onClick={() => !isEditing && setEdit({ id })} className={styles.bingoCardSizing}>
