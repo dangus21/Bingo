@@ -1,7 +1,6 @@
-.wrapper {
-    background-color: rgb(167, 175, 224);
-}
-
-.editing {
+.bingoCardSizing {
+    min-height: 70px;
+    max-height: 150px;
+    display: flex;
     align-items: center;
 }

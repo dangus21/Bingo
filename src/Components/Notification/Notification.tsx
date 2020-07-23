@@ -11,11 +11,10 @@ type Props = {
 export const Notification = ({ isOpen, text, setOpenNotification }: Props) => {
     useEffect(() => {
         const timer = setInterval(() => {
-            console.log('LOG: timer -> false');
             setOpenNotification(false)
         }, 2500);
         return () => clearTimeout(timer);
-    }, []);
+    }, [setOpenNotification]);
 
     return (
         <TransitionablePortal

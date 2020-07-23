@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./App.css";
+import "./Bingo.css";
 import { v4 as uuidv4 } from 'uuid';
-import { BingoTemplate, BingoCardEditOptions } from "declarations/BingoCard";
+import { BingoTemplate, BingoCardEditOptions } from "interfaces/BingoCard";
 
 import BingoCard from "Components/BingoCard";
 import BingoWrapper from "Components/BingoWrapper";
@@ -9,7 +9,7 @@ import Notification from "Components/Notification";
 
 import { Button, Container } from "semantic-ui-react";
 
-const App = () => {
+export const Bingo = () => {
     const [counter, setCounter] = useState<number>(0)
     const [isNotificationOpen, setIsNotificationOpen] = useState<boolean>(false)
     const [notificationText, setNotificationText] = useState<string>('')
@@ -74,7 +74,9 @@ const App = () => {
                 text={notificationText}
                 isOpen={isNotificationOpen}
                 setOpenNotification={setIsNotificationOpen} />
-            <Button onClick={addAndIncrement}>Add Bingo Card</Button>
+            <Container>
+                <Button onClick={addAndIncrement}>Add Bingo Card</Button>
+            </Container>
             <BingoWrapper>
                 {bingos.map(bingo =>
                     <BingoCard
@@ -89,5 +91,3 @@ const App = () => {
         </Container>
     );
 }
-
-export default App;
