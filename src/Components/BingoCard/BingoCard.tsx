@@ -9,8 +9,7 @@ import styles from './styles.module.scss'
 interface Props extends BingoTemplate {
     setEdit(options: BingoCardEditOptions): void,
     setText(id: string, value: string): void
-    setOpenNotification(open: boolean): void
-    setNotificationText(open: string): void
+    setNotification(open: string): void
 }
 
 export const BingoCard = ({
@@ -21,13 +20,11 @@ export const BingoCard = ({
     uuid,
     setEdit,
     setText,
-    setOpenNotification,
-    setNotificationText
+    setNotification,
 }: Props) => {
     const copyUuidOpenNotification = () => {
         copy(uuid);
-        setNotificationText('Bingo card ID copied to clipboard');
-        setOpenNotification(true);
+        setNotification('Bingo card ID copied to clipboard');
     }
     return (
         <Card>
