@@ -7,7 +7,7 @@ import BingoCard from "Components/BingoCard";
 import BingoWrapper from "Components/BingoWrapper";
 
 import { ToastContainer, toast } from 'react-toastify';
-import { Button, Container } from "semantic-ui-react";
+import { Button, Container, Grid, Rail } from "semantic-ui-react";
 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -23,7 +23,7 @@ export const Bingo = () => {
         uuid: uuidv4(),
     }
 
-    const debugBingos = Array(8).fill({}).map((b, i) => ({ ...bingoPreset, ...b, id: i, uuid: uuidv4() }))
+    const debugBingos = Array(8).fill({}).map(b => ({ ...bingoPreset, ...b, uuid: uuidv4() }))
 
     const [bingos, setBingos] = useState<BingoTemplate[]>(process.env.NODE_ENV === "development" ? debugBingos : [])
 
@@ -70,21 +70,25 @@ export const Bingo = () => {
     }
 
     return (
-        <Container>
-            <ToastContainer autoClose={2500} hideProgressBar closeOnClick/>
-            <Container style={{padding: "15px 0"}}>
-                <Button onClick={addAndIncrement}>Add Bingo Card</Button>
-            </Container>
-            <BingoWrapper>
-                {bingos.map(bingo =>
-                    <BingoCard
-                        key={bingo.id.toString()}
-                        setEdit={setEdit}
-                        setText={setText}
-                        setNotification={notify}
-                        {...bingo} />
-                )}
-            </BingoWrapper>
+        <Container fluid style={{ padding: "15px 0"}}>
+            <ToastContainer autoClose={2500} hideProgressBar closeOnClick />
+            <Grid stackable centered columns="2">
+                <Grid.Column>
+                    <BingoWrapper>
+                        {bingos.map(bingo =>
+                            <BingoCard
+                                key={bingo.id.toString()}
+                                setEdit={setEdit}
+                                setText={setText}
+                                setNotification={notify}
+                                {...bingo} />
+                        )}
+                    </BingoWrapper>
+                    <Rail style={{marginTop: 13}} close position="right">
+                        <Button primary onClick={addAndIncrement}>Add Bingo Card</Button>
+                    </Rail>
+                </Grid.Column>
+            </Grid>
         </Container>
-    );
+    )
 }

@@ -7,7 +7,7 @@ type Props = {
 
 export const BingoWrapper = ({ children }: Props) => {
     return (
-        <Card.Group>
+        <Card.Group centered>
             {children}
         </Card.Group>
     )
