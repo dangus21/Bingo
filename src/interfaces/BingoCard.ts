@@ -6,7 +6,8 @@ export interface BingoTemplate {
     uuid: string;
 }
 
-export interface BingoCardEditOptions {
-    id?: string,
-    closeAll?: boolean,
+export interface BingoCardEditParams {
+    text?: string,
+    isEditing?: boolean,
+    isChecked?: boolean,
 }
