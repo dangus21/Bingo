@@ -37,25 +37,15 @@ export const BingoCard = ({
             <Card.Content >
                 <Card.Meta className={styles.bingoCardMeta}>
                     <small onClick={copyUuidOpenNotification} className={styles.cursorCopy}><span>{uuid}</span></small>
-                    {!isChecked ?
-                        <span
-                            onClick={() =>
-                                setEdit(id, {
-                                    isChecked: true,
-                                    isEditing: false,
-                                    allowEditing: false
-                                })}>
-                            <Icon name="check" color="green"/>
-                        </span> :
-                        <span
-                            onClick={() =>
-                                setEdit(id, {
-                                    isChecked: false,
-                                    allowEditing: true,
-                                })}>
-                            <Icon name="close" color="red"/>
-                        </span>
-                    }
+                    <span
+                        onClick={() =>
+                            setEdit(id, {
+                                isEditing: false,
+                                isChecked: !isChecked,
+                                allowEditing: !allowEditing
+                            })}>
+                        <Icon name="check" color={isChecked ? "green" : "grey"} />
+                    </span>
                 </Card.Meta>
             </Card.Content>
             <Card.Content
@@ -68,7 +58,7 @@ export const BingoCard = ({
                             onChange={(e: any) => setEdit(id, { text: e.target.value, isEditing: true })}
                             onKeyDown={(e: any) => e.keyCode === 13 && setEdit(id, { isEditing: false })} />
                         :
-                        <span className={c({[styles.editingTextPrevent]: !allowEditing})}>{text || placeholder}</span>
+                        <span className={c({ [styles.editingTextPrevent]: !allowEditing })}>{text || placeholder}</span>
                     }
                 </div>
             </Card.Content>
