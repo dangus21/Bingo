@@ -1,8 +1,9 @@
 import React from 'react';
 import { BingoTemplate, BingoCardEditParams } from 'interfaces/BingoCard';
 import copy from 'copy-to-clipboard';
+import c from 'classnames';
 
-import { Card, Input } from 'semantic-ui-react'
+import { Card, Input, Icon } from 'semantic-ui-react'
 
 import styles from './styles.module.scss'
 
@@ -15,7 +16,9 @@ export const BingoCard = ({
     text,
     placeholder,
     id,
+    allowEditing,
     isEditing,
+    isChecked,
     uuid,
     setEdit,
     setNotification,
@@ -26,26 +29,48 @@ export const BingoCard = ({
     }
 
     const cardContentClick = () => {
-        !isEditing && setEdit(id);
+        allowEditing && !isEditing && setEdit(id, { isEditing: true, allowEditing: true });
     }
 
     return (
         <Card>
-            <Card.Content onClick={copyUuidOpenNotification} className={styles.cursorCopy}>
-                <Card.Meta>
-                    <small><span>{uuid}</span></small>
+            <Card.Content >
+                <Card.Meta className={styles.bingoCardMeta}>
+                    <small onClick={copyUuidOpenNotification} className={styles.cursorCopy}><span>{uuid}</span></small>
+                    {!isChecked ?
+                        <span
+                            onClick={() =>
+                                setEdit(id, {
+                                    isChecked: true,
+                                    isEditing: false,
+                                    allowEditing: false
+                                })}>
+                            <Icon name="check" color="green"/>
+                        </span> :
+                        <span
+                            onClick={() =>
+                                setEdit(id, {
+                                    isChecked: false,
+                                    allowEditing: true,
+                                })}>
+                            <Icon name="close" color="red"/>
+                        </span>
+                    }
                 </Card.Meta>
             </Card.Content>
-            <Card.Content onClick={cardContentClick} className={styles.bingoCardSizing}>
-                {isEditing ?
-                    <Input
-                        placeholder={placeholder}
-                        value={text}
-                        onChange={(e: any) => setEdit(id, { text: e.target.value, isEditing: true })}
-                        onKeyDown={(e: any) => e.keyCode === 13 && setEdit(id)} />
-                    :
-                    <span>{text || placeholder}</span>
-                }
+            <Card.Content
+                onClick={cardContentClick}>
+                <div className={c(styles.bingoCardContentSizing, { [styles.checked]: isChecked })}>
+                    {isEditing ?
+                        <Input
+                            placeholder={placeholder}
+                            value={text}
+                            onChange={(e: any) => setEdit(id, { text: e.target.value, isEditing: true })}
+                            onKeyDown={(e: any) => e.keyCode === 13 && setEdit(id, { isEditing: false })} />
+                        :
+                        <span className={c({[styles.editingTextPrevent]: !allowEditing})}>{text || placeholder}</span>
+                    }
+                </div>
             </Card.Content>
         </Card >
 

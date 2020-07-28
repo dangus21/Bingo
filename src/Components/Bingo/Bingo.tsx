@@ -20,6 +20,8 @@ export const Bingo = () => {
         placeholder: 'Edit Me',
         id: counter.toString(),
         isEditing: false,
+        isChecked: false,
+        allowEditing: true,
         uuid: uuid(),
     }
 
@@ -36,14 +38,13 @@ export const Bingo = () => {
         setCounter(counter + 1);
     }
 
-    const setEdit = (id: string, params: BingoCardEditParams = {}): void => {
+    const setEdit = (bingoId: string, params: BingoCardEditParams = {}): void => {
         setBingos(
             bingos.map(bingo =>
-                bingo.id === id ?
+                bingo.id === bingoId ?
                     {
                         ...bingo,
                         ...params,
-                        ...(!params.isEditing && { isEditing: !bingo.isEditing }),
                     } : bingo
             )
         )
@@ -53,7 +54,7 @@ export const Bingo = () => {
         <Container fluid style={{ padding: "15px 0" }}>
             <ToastContainer autoClose={2500} hideProgressBar closeOnClick />
             <Grid stackable centered columns="2" style={{ margin: 0 }}>
-                <Grid.Column width="2" floated="right">
+                <Grid.Column width="2" style={{ maxWidth: "20vw", marginTop: 12.25 }}>
                     <Button primary onClick={addAndIncrement}>Add Bingo Card</Button>
                 </Grid.Column>
                 <Grid.Column width="14" style={{ maxWidth: "80vw" }}>
