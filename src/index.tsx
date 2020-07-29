@@ -5,7 +5,7 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Bingo from 'Components/Bingo';
 
-ReactDOM.render(
+ReactDOM.hydrate(
   <React.StrictMode>
     <Bingo />
   </React.StrictMode>,

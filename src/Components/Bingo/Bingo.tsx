@@ -38,6 +38,8 @@ export const Bingo = () => {
         setCounter(counter + 1);
     }
 
+    const removeBingo = (uuid: string): void => setBingos(bingos.filter(bingo => bingo.uuid !== uuid))
+
     const setEdit = (bingoId: string, params: BingoCardEditParams = {}): void => {
         setBingos(
             bingos.map(bingo =>
@@ -64,6 +66,7 @@ export const Bingo = () => {
                                 key={bingo.id.toString()}
                                 setEdit={setEdit}
                                 setNotification={notify}
+                                remove={removeBingo}
                                 {...bingo} />
                         )}
                     </BingoWrapper>

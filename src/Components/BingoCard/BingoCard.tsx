@@ -8,8 +8,9 @@ import { Card, Input, Icon } from 'semantic-ui-react'
 import styles from './styles.module.scss'
 
 interface Props extends BingoTemplate {
-    setEdit(id: string, options?: BingoCardEditParams): void,
-    setNotification(open: string): void
+    setEdit(id: string, options?: BingoCardEditParams): void
+    setNotification(text: string): void
+    remove(uuid: string): void
 }
 
 export const BingoCard = ({
@@ -22,6 +23,7 @@ export const BingoCard = ({
     uuid,
     setEdit,
     setNotification,
+    remove,
 }: Props) => {
     const copyUuidOpenNotification = () => {
         copy(uuid);
@@ -38,13 +40,17 @@ export const BingoCard = ({
                 <Card.Meta className={styles.bingoCardMeta}>
                     <small onClick={copyUuidOpenNotification} className={styles.cursorCopy}><span>{uuid}</span></small>
                     <span
+                        onClick={() => remove(uuid)}>
+                        <Icon name='delete' color='red' />
+                    </span>
+                    <span
                         onClick={() =>
                             setEdit(id, {
                                 isEditing: false,
                                 isChecked: !isChecked,
                                 allowEditing: !allowEditing
                             })}>
-                        <Icon name="check" color={isChecked ? "green" : "grey"} />
+                        <Icon name='check' color={isChecked ? 'green' : 'grey'} />
                     </span>
                 </Card.Meta>
             </Card.Content>
