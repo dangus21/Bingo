@@ -31,8 +31,5 @@ jobs:
           BUILD_PATH: build
           GITHUB_PAGE_NAME: dangus21.github.io
           PA_TOKEN: ${{ secrets.PA_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          #BRANCH: gh-pages # The branch the action should deploy to.
-          #FOLDER: build # The folder the action should deploy.
           USERNAME: dangus21
           EMAIL: angusmiguel21@gmail.com
