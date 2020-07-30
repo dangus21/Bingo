@@ -31,7 +31,6 @@ jobs:
     strategy:
       matrix:
         node-version: [14.x]
-
       - name: Deploy to production
         uses: awb-pw/deploy-to-github-pages-action@1.1.1
         env:
