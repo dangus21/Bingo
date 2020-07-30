@@ -18,9 +18,8 @@ jobs:
 
     steps:
       - name: Install and Build 🔧
-        run: |
-          npm install
-          npm build
+        run: npm install
+        run: npm build
         env:
           CI: true
 
