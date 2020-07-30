@@ -3,7 +3,7 @@ import { BingoTemplate, BingoCardEditParams } from 'interfaces/BingoCard';
 import copy from 'copy-to-clipboard';
 import c from 'classnames';
 
-import { Card, Input, Icon } from 'semantic-ui-react'
+import { Card, Input, Icon, Container } from 'semantic-ui-react'
 
 import styles from './styles.module.scss'
 
@@ -56,7 +56,7 @@ export const BingoCard = ({
             </Card.Content>
             <Card.Content
                 onClick={cardContentClick}>
-                <div className={c(styles.bingoCardContentSizing, { [styles.checked]: isChecked })}>
+                <Container as="div" className={c(styles.bingoCardContentSizing, { [styles.checked]: isChecked })}>
                     {isEditing ?
                         <Input
                             placeholder={placeholder}
@@ -66,7 +66,7 @@ export const BingoCard = ({
                         :
                         <span className={c({ [styles.editingTextPrevent]: !allowEditing })}>{text || placeholder}</span>
                     }
-                </div>
+                </Container>
             </Card.Content>
         </Card >
 

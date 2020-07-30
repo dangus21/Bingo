@@ -53,7 +53,7 @@ export const Bingo = () => {
     }
 
     return (
-        <Container fluid style={{ padding: "15px 0" }}>
+        <Container as="main" fluid style={{ padding: "15px 0" }}>
             <ToastContainer autoClose={2500} hideProgressBar closeOnClick />
             <Grid stackable centered columns="2" style={{ margin: 0 }}>
                 <Grid.Column width="2" style={{ maxWidth: "20vw", marginTop: 12.25 }}>
