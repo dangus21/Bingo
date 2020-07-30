@@ -18,8 +18,8 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
-          node-version: ${{ matrix.node-version }}
         with:
+          node-version: ${{ matrix.node-version }}
           persist-credentials: false
 
       - name: Install and Build 🔧
