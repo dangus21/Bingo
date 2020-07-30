@@ -24,7 +24,7 @@ jobs:
           CI: true
 
       - name: Deploy to production
-        uses: dangus21/deploy-to-github-pages-action@1.1.1
+        uses: actions/checkout@v2
         env:
           AUTHOR: angusmiguel
           BUILD_PATH: build
