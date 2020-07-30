@@ -27,12 +27,12 @@ jobs:
     strategy:
       matrix:
         node-version: [14.x]
-      - name: Deploy to production
-        uses: awb-pw/deploy-to-github-pages-action@1.1.1
-        env:
-          AUTHOR: angusmiguel
-          BUILD_PATH: build
-          GITHUB_PAGE_NAME: dangus21.github.io
-          PA_TOKEN: ${{ secrets.PA_TOKEN }}
-          USERNAME: dangus21
-          EMAIL: angusmiguel21@gmail.com
+    - name: Deploy to production
+      uses: awb-pw/deploy-to-github-pages-action@1.1.1
+      env:
+        AUTHOR: angusmiguel
+        BUILD_PATH: build
+        GITHUB_PAGE_NAME: dangus21.github.io
+        PA_TOKEN: ${{ secrets.PA_TOKEN }}
+        USERNAME: dangus21
+        EMAIL: angusmiguel21@gmail.com
