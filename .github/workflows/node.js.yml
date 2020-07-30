@@ -5,10 +5,11 @@ name: Node.js CI
 
 on:
   push:
-    branches: [master]
+    branches:
+      - master
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     strategy:
@@ -16,21 +17,21 @@ jobs:
         node-version: [14.x]
 
     steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-          persist-credentials: false
-
       - name: Install and Build 🔧
         run: |
           npm ci
-          npm run predeploy
-          npm run deploy
+        env:
+          CI: true
 
-      - name: Deploy 🚀
-        uses: actions/checkout@v2
-        with:
+      - name: Deploy to production
+        uses: dangus21/deploy-to-github-pages-action@1.1.1
+        env:
+          AUTHOR: angusmiguel
+          BUILD_PATH: build
+          GITHUB_PAGE_NAME: dangus21.github.io
+          PA_TOKEN: ${{ secrets.PA_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: build # The folder the action should deploy.
+          #BRANCH: gh-pages # The branch the action should deploy to.
+          #FOLDER: build # The folder the action should deploy.
+          USERNAME: dangus21
+          EMAIL: angusmiguel21@gmail.com
