@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "69ecb6e63a6676032d7a2cbe2d97111d",
+    "revision": "29c7bdb1d6053b4d60c4487eddd34ff6",
     "url": "/Bingo/index.html"
   },
   {
-    "revision": "08843b799df367fd087c",
+    "revision": "a1dafb5bae3b83fe857e",
     "url": "/Bingo/static/css/2.d34346ea.chunk.css"
   },
   {
-    "revision": "88d9df48adfe6742154d",
+    "revision": "372a86095ffa0b23e188",
     "url": "/Bingo/static/css/main.69574aa9.chunk.css"
   },
   {
-    "revision": "08843b799df367fd087c",
-    "url": "/Bingo/static/js/2.16cd194c.chunk.js"
+    "revision": "a1dafb5bae3b83fe857e",
+    "url": "/Bingo/static/js/2.98805346.chunk.js"
   },
   {
     "revision": "4d47ffde3dc69784e8e23fd910817ef8",
-    "url": "/Bingo/static/js/2.16cd194c.chunk.js.LICENSE.txt"
+    "url": "/Bingo/static/js/2.98805346.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "88d9df48adfe6742154d",
-    "url": "/Bingo/static/js/main.a4a96055.chunk.js"
+    "revision": "372a86095ffa0b23e188",
+    "url": "/Bingo/static/js/main.91c305b5.chunk.js"
   },
   {
     "revision": "f458d6954bb4882981b1",

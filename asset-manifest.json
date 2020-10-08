@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/Bingo/static/css/main.69574aa9.chunk.css",
-    "main.js": "/Bingo/static/js/main.a4a96055.chunk.js",
-    "main.js.map": "/Bingo/static/js/main.a4a96055.chunk.js.map",
+    "main.js": "/Bingo/static/js/main.91c305b5.chunk.js",
+    "main.js.map": "/Bingo/static/js/main.91c305b5.chunk.js.map",
     "runtime-main.js": "/Bingo/static/js/runtime-main.00b8c666.js",
     "runtime-main.js.map": "/Bingo/static/js/runtime-main.00b8c666.js.map",
     "static/css/2.d34346ea.chunk.css": "/Bingo/static/css/2.d34346ea.chunk.css",
-    "static/js/2.16cd194c.chunk.js": "/Bingo/static/js/2.16cd194c.chunk.js",
-    "static/js/2.16cd194c.chunk.js.map": "/Bingo/static/js/2.16cd194c.chunk.js.map",
+    "static/js/2.98805346.chunk.js": "/Bingo/static/js/2.98805346.chunk.js",
+    "static/js/2.98805346.chunk.js.map": "/Bingo/static/js/2.98805346.chunk.js.map",
     "index.html": "/Bingo/index.html",
-    "precache-manifest.865393d0359dd6961b7bccc90c83fc14.js": "/Bingo/precache-manifest.865393d0359dd6961b7bccc90c83fc14.js",
+    "precache-manifest.50e339730ce122edd0ee9a53a4989a15.js": "/Bingo/precache-manifest.50e339730ce122edd0ee9a53a4989a15.js",
     "service-worker.js": "/Bingo/service-worker.js",
     "static/css/2.d34346ea.chunk.css.map": "/Bingo/static/css/2.d34346ea.chunk.css.map",
     "static/css/main.69574aa9.chunk.css.map": "/Bingo/static/css/main.69574aa9.chunk.css.map",
-    "static/js/2.16cd194c.chunk.js.LICENSE.txt": "/Bingo/static/js/2.16cd194c.chunk.js.LICENSE.txt"
+    "static/js/2.98805346.chunk.js.LICENSE.txt": "/Bingo/static/js/2.98805346.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.00b8c666.js",
     "static/css/2.d34346ea.chunk.css",
-    "static/js/2.16cd194c.chunk.js",
+    "static/js/2.98805346.chunk.js",
     "static/css/main.69574aa9.chunk.css",
-    "static/js/main.a4a96055.chunk.js"
+    "static/js/main.91c305b5.chunk.js"
   ]
 }
