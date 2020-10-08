@@ -7,7 +7,8 @@ import BingoCard from "Components/BingoCard";
 import BingoWrapper from "Components/BingoWrapper";
 
 import { ToastContainer, toast } from 'react-toastify';
-import { Button, Container, Grid } from "semantic-ui-react";
+import { Container, Grid } from "semantic-ui-react";
+import { MUTButton } from "my-ui-toolkit";
 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -51,13 +52,15 @@ export const Bingo = () => {
             )
         )
     }
+    
+    console.log(MUTButton);
 
     return (
         <Container as="main" fluid style={{ padding: "15px 0" }}>
             <ToastContainer autoClose={2500} hideProgressBar closeOnClick />
             <Grid stackable centered columns="2" style={{ margin: 0 }}>
                 <Grid.Column width="2" style={{ maxWidth: "20vw", marginTop: 12.25 }}>
-                    <Button primary onClick={addAndIncrement}>Add Bingo Card</Button>
+                    <MUTButton border pointer onClick={addAndIncrement}>Add Bingo Card</MUTButton>
                 </Grid.Column>
                 <Grid.Column width="14" style={{ maxWidth: "80vw" }}>
                     <BingoWrapper>

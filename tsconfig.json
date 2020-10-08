@@ -15,11 +15,16 @@
     "noEmit": true,
     "jsx": "react",
     "baseUrl": "src",
-    "noImplicitAny": true,
-    "noImplicitThis": true,
+    "noImplicitAny": false,
+    "noImplicitThis": false,
     "strictNullChecks": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    // "paths": {
+    //   "@modules/*": ["modules/*"],
+    //   "@config/*": ["config/*"],
+    //   "@shared/*": ["shared/*"]
+    // }
   },
   "include": [
     "src",
